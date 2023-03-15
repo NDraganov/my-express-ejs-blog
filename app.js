@@ -12,6 +12,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 
+app.route('/')
+  .get((req, res) => {
+    res.render('home');
+  })
+
 
 app.listen(3000, function() {
     console.log('App is running on port 3000.');
