@@ -3,6 +3,7 @@ html {
     position: relative;
 }
 
+
 /* Navigation */
 
 nav {
@@ -12,13 +13,81 @@ nav {
     color: #F6F1F1;
     font-size: 30px;
 }
+.navbar-brand:hover {
+    color: #F6F1F1;
+}
 .navbar-nav {
     position: relative;
-    left: 70%;
+    left: 30%;
 }
 .nav-link {
     color: #F6F1F1;
     font-size: 20px;
+    padding: 8px 0px !important;
+    margin: 5px 20px;
+}
+.nav-link:hover {
+    color: #F6F1F1;
+    border-bottom: 2px solid #F6F1F1;
+}
+.login-btn {
+    background: none;
+    color: #F6F1F1;
+    border: 2px solid #F6F1F1;
+    border-radius: 8px;
+    position: relative;
+    left: 130%;
+    font-weight: bold;
+}
+.login-btn:hover {
+    color: #000000;
+    background-color: #F6F1F1;
+}
+
+/* Home Page */
+
+.bg-img {
+    min-width: 100vw;
+    min-height: 100vh;
+    width: 50%;
+    z-index: -1;
+}
+.home-content {
+    position: absolute;
+    top: 300px;
+}
+.share-story {
+    padding-right: 100px;
+    padding-top: 30px;
+}
+.story-btn {
+    background-color: #F6F1F1;
+    border: none;
+    height: 60px;
+    width: 150px;
+    font-weight: bold;
+}
+.story-btn:hover {
+    background-color: #000000;
+    color: #F6F1F1;
+}
+.desk {
+    width: 100%;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+    .home-content {
+        top: 100px;
+    }
+    .desk {
+        border-radius: 10px;
+        margin-top: 20px;
+        width: 450px;
+    }
+  
+    
 }
 
 /* Footer */
