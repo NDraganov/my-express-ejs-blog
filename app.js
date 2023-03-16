@@ -17,6 +17,16 @@ app.use(express.static('public'));
 
 mongoose.connect(mongodbUrl, {useNewUrlParser: true});
 
+const userSchema = new mongoose.Schema({
+    firstName: String,
+    lastName: String,
+    email: String,
+    password: String
+});
+
+const User = new mongoose.model('User', userSchema);
+
+
 app.route('/')
     .get((req, res) => {
         res.render('home');
@@ -35,7 +45,21 @@ app.route('/register')
     res.render('register');
     })
     .post((req, res) => {
-        res.render('register');
+        const newUser = new User({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            password: req.body.password
+        });
+
+        newUser.save()
+          .then(() => {
+            res.render('write-post');
+          })
+          .catch((err) => {
+            res.send(err);
+          })
+        
     });
 
 app.route('/sign-in')
