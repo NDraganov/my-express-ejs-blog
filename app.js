@@ -13,9 +13,19 @@ app.use(express.static('public'));
 
 
 app.route('/')
-  .get((req, res) => {
-    res.render('home');
-  })
+    .get((req, res) => {
+        res.render('home');
+    })
+    
+    
+
+app.route('/write-post')
+    .get((req, res) => {
+    res.render('write-post');
+    })
+    .post((req, res) => {
+        res.render('write-post');
+    });
 
 
 app.listen(3000, function() {

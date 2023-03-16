@@ -86,8 +86,18 @@ nav {
         margin-top: 20px;
         width: 450px;
     }
-  
-    
+   
+}
+
+
+/* Post Form */
+
+.write-post-description {
+    text-align: center;
+    margin-top: 50px;
+}
+.post-form {
+    margin-top: 50px;
 }
 
 /* Footer */
