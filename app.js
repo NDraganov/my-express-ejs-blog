@@ -25,12 +25,12 @@ app.route('/write-post')
         res.render('write-post');
     });
 
-app.route('/log-in')
+app.route('/register')
     .get((req, res) => {
-    res.render('log-in');
+    res.render('register');
     })
     .post((req, res) => {
-        res.render('log-in');
+        res.render('register');
     });
 
 app.route('/sign-in')

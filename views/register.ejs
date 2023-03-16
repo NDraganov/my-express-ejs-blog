@@ -1,0 +1,33 @@
+<%- include('partials/header'); -%>
+
+<div class="container register-form">
+    <i class="fa-solid fa-id-card"></i>
+    <div class="card mt-3">
+        <div class="card-body">
+            <h5>Plese, fill out the form below to register for our blog.</h5>
+            <form class="mt-5" action="" method="post">
+                <div class="mb-3">
+                    <label class="form-label" for="">First Name</label>
+                    <input class="form-control" type="text" placeholder="First Name">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="">Last Name</label>
+                    <input class="form-control" type="text" placeholder="Last Name">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="">Email</label>
+                    <input class="form-control" type="email" placeholder="Email">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="">Password</label>
+                    <input class="form-control" type="password" placeholder="Password">
+                </div>
+                <form action="" method="post">
+                    <button class="btn btn-primary" type="submit" name="userRegisterBtn">REGISTER</button>
+                </form>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer'); -%>
