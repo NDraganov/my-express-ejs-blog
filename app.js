@@ -32,19 +32,14 @@ app.route('/')
         res.render('home');
     })   
 
-app.route('/write-post')
-    .get((req, res) => {
-    res.render('write-post');
-    })
-    .post((req, res) => {
-        res.render('write-post');
-    });
+
 
 app.route('/register')
     .get((req, res) => {
     res.render('register');
     })
     .post((req, res) => {
+
         const newUser = new User({
             firstName: req.body.firstName,
             lastName: req.body.lastName,
@@ -67,7 +62,31 @@ app.route('/sign-in')
     res.render('sign-in');
     })
     .post((req, res) => {
-        res.render('sign-in');
+
+        const email = req.body.email;
+        const password = req.body.password;
+
+        User.findOne({email: email})
+          .then((foundUser) => {
+            if(foundUser) {
+                if(foundUser.password === password) {
+                    res.render('write-post');
+                }
+            }
+          })
+          .catch((err) => {
+            res.send(err);
+          })
+        
+    });
+
+app.route('/write-post')
+    .get((req, res) => {
+    res.render('write-post');
+    })
+    .post((req, res) => {
+
+        res.render('write-post');
     });
 
 
