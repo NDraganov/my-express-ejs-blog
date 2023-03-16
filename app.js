@@ -1,8 +1,12 @@
 //jshint esversion:6
+require('dotenv').config();
 
 const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
+const mongoose = require('mongoose');
+
+const mongodbUrl = process.env.MONGODB_LINK;
 
 const app = express();
 
@@ -11,6 +15,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
+mongoose.connect(mongodbUrl, {useNewUrlParser: true});
 
 app.route('/')
     .get((req, res) => {
