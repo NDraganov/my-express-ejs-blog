@@ -29,7 +29,12 @@
               <li class="nav-item">
                 <a class="nav-link">Contact</a>
               </li>
-              <button class="login-btn" type="submit" title="LOG IN">LOG IN</button>
+              <form action="/log-in" method="post">
+                <button class="login-btn" type="submit" name="log-in-btn" title="LOG IN">LOG IN</button>
+              </form>
+              <form action="/sign-in" method="post">
+                <button class="sign-btn" type="submit" name="sign-in-btn" title="LOG IN">SIGN IN</button>
+              </form>
             </ul>
           </div>
         </div>

@@ -36,12 +36,46 @@ nav {
     border: 2px solid #F6F1F1;
     border-radius: 8px;
     position: relative;
-    left: 130%;
+    top: 15px;
+    left: 430%;
     font-weight: bold;
 }
 .login-btn:hover {
     color: #000000;
     background-color: #F6F1F1;
+}
+.sign-btn {
+    background: none;
+    color: #F6F1F1;
+    border: 2px solid #F6F1F1;
+    border-radius: 8px;
+    position: relative;
+    top: 15px;
+    left: 430%;
+    font-weight: bold;
+}
+.sign-btn:hover {
+    color: #000000;
+    background-color: #F6F1F1;
+}
+
+/* Log In Page */
+
+.log-in-form {
+    margin-top: 150px;
+    text-align: center;
+}
+.log-in-form form {
+    padding: 0px 470px;
+}
+.fa-users {
+    font-size: 60px;
+}
+
+@media only screen and (max-width: 768px) {
+    .log-in-form form {
+        padding: 0px 50px;
+    }
 }
 
 /* Home Page */
