@@ -49,14 +49,15 @@ passport.deserializeUser(User.deserializeUser());
 app.route('/')
     .get((req, res) => {
 
-        res.render('home');
+        
+        res.render('home', {isAuthenticated: req.isAuthenticated()});
 
     })   
 
 app.route('/register')
     .get((req, res) => {
 
-        res.render('register');
+        res.render('register', {isAuthenticated: req.isAuthenticated()});
 
     })
     .post((req, res) => {
@@ -77,7 +78,7 @@ app.route('/register')
 app.route('/sign-in')
     .get((req, res) => {
 
-        res.render('sign-in');
+        res.render('sign-in', {isAuthenticated: req.isAuthenticated()});
 
     })
     .post((req, res) => {
@@ -103,7 +104,7 @@ app.route('/write-post')
     .get((req, res) => {
 
         if(req.isAuthenticated()) {
-            res.render('write-post');
+            res.render('write-post', {isAuthenticated: req.isAuthenticated()});
         } else {
             res.redirect('/sign-in');
         }
@@ -114,6 +115,18 @@ app.route('/write-post')
         res.render('write-post');
 
     });
+
+app.route('/logout')
+    .get((req, res) => {
+
+        req.logout((err) => {
+            if(err) {
+                return next(err);
+            }
+        });
+
+        res.redirect('/');
+    })
 
 
 app.listen(3000, function() {

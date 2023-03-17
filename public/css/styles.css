@@ -37,7 +37,7 @@ nav {
     border-radius: 8px;
     position: relative;
     padding-top: 15px;
-    left: 65%;
+    left: 75%;
     font-weight: bold;
 }
 .register-btn:hover {
@@ -51,7 +51,7 @@ nav {
     border-radius: 8px;
     position: relative;
     padding-top: 15px;
-    left: 70%;
+    left: 78%;
     font-weight: bold;
 }
 .sign-in-btn:hover {
@@ -59,14 +59,13 @@ nav {
     background-color: #F6F1F1;
 }
 .log-out-btn {
-    display: none;
     background: none;
     color: #F6F1F1;
     border: 2px solid #F6F1F1;
     border-radius: 8px;
     position: relative;
     padding-top: 15px;
-    /* left: 50%; */
+    left: 120%;
     font-weight: bold;
 }
 .log-out-btn:hover {

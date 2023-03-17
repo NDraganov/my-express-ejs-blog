@@ -29,9 +29,14 @@
               <li class="nav-item">
                 <a class="nav-link">Contact</a>
               </li>
-              <a class="register-btn btn" type="button" href="/register"  title="REGISTER">REGISTER</a>
-              <a class="sign-in-btn btn" type="button" href="/sign-in"  title="SIGN IN">SIGN IN</a>
-              <a class="log-out-btn btn" type="button" href="/log-out"  title="SIGN IN">LOG OUT</a>
+              <% if(isAuthenticated) { %>
+                <a class="log-out-btn btn" type="button" href="/logout"  title="LOG OUT">LOG OUT</a>
+              <% } else { %>
+                <a class="register-btn btn" type="button" href="/register"  title="REGISTER">REGISTER</a>
+                <a class="sign-in-btn btn" type="button" href="/sign-in"  title="SIGN IN">SIGN IN</a>
+              <% } %>
+              
+              
             </ul>
           </div>
         </div>
