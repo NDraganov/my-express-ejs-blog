@@ -73,39 +73,6 @@ nav {
     background-color: #F6F1F1;
 }
 
-/* Register Page */
-
-.register-form {
-    margin: 100px auto 100px;
-    padding: 0px 200px 0px;
-    text-align: center;
-}
-.register-form form {
-    text-align: left !important;
-}
-.fa-id-card {
-    font-size: 100px;
-}
-
-/* Sign In Page */
-
-.sign-in-form {
-    margin-top: 150px;
-    text-align: center;
-}
-.sign-in-form form {
-    padding: 0 40%;
-}
-.fa-users {
-    font-size: 60px;
-}
-
-@media only screen and (max-width: 768px) {
-    .log-in-form form {
-        padding: 0px 50px;
-    }
-}
-
 /* Home Page */
 
 .bg-img {
@@ -152,8 +119,66 @@ nav {
    
 }
 
+/* Register Page */
 
-/* Post Form */
+.register-form {
+    margin: 100px auto 100px;
+    padding: 0px 200px 0px;
+    text-align: center;
+}
+.register-form form {
+    text-align: left !important;
+}
+.fa-id-card {
+    font-size: 100px;
+}
+
+/* Profile Page */
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    background-color: darkgray;
+    border: 5px solid grey;
+    border-radius: 100%;
+}
+.email {
+    color: coral;
+    font-size: 20px;
+}
+.write-btn {
+    background-color: #594545;
+    color: #F6F1F1;
+    font-weight: bold;
+}
+.write-btn:hover {
+    background-color: #F6F1F1;
+    color: #594545;
+    border: 2px solid #594545;
+}
+
+/* Sign In Page */
+
+.sign-in-form {
+    margin-top: 150px;
+    text-align: center;
+}
+.sign-in-form form {
+    padding: 0 40%;
+}
+.fa-users {
+    font-size: 60px;
+}
+
+@media only screen and (max-width: 768px) {
+    .log-in-form form {
+        padding: 0px 50px;
+    }
+}
+
+
+
+/* Post Page */
 
 .write-post-description {
     text-align: center;

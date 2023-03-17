@@ -62,10 +62,10 @@ app.route('/register')
     })
     .post((req, res) => {
 
-        User.register({username: req.body.username}, req.body.password)
+        User.register({username: req.body.username, firstName: req.body.firstName, lastName: req.body.lastName}, req.body.password)
             .then((user) => {
                 passport.authenticate('local')(req, res, () => {
-                    res.redirect('/write-post');
+                    res.redirect('/profile');
                 });
             })
             .catch((err) => {
@@ -93,12 +93,28 @@ app.route('/sign-in')
                 res.send(err);
             } else {
                 passport.authenticate('local')(req, res, () => {
-                    res.redirect('/write-post');
+                    res.redirect('/profile');
                 });
             }
         })
         
     });
+
+app.route('/profile')
+    .get((req, res) => {
+
+        if(req.isAuthenticated()) {
+            
+            res.render('profile', {username: req.user.username, firstName: req.user.firstName, lastName: req.user.lastName, isAuthenticated: req.isAuthenticated()});
+        } else {
+            res.redirect('/sign-in');
+        }
+
+    })
+    .post((req, res) => {
+
+        res.render('/profile');
+    })
 
 app.route('/write-post')
     .get((req, res) => {
