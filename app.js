@@ -5,6 +5,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const mongoose = require('mongoose');
+const session = require('express-session');
+const passport = require('passport');
+const passportLocalMongoose = require('passport-local-mongoose');
 
 const mongodbUrl = process.env.MONGODB_LINK;
 
@@ -15,78 +18,101 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
+app.use(session({
+    secret: "Thisissecret",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {}
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 mongoose.connect(mongodbUrl, {useNewUrlParser: true});
 
 const userSchema = new mongoose.Schema({
     firstName: String,
     lastName: String,
-    email: String,
+    username: String,
     password: String
 });
 
+userSchema.plugin(passportLocalMongoose);
+
 const User = new mongoose.model('User', userSchema);
 
+passport.use(User.createStrategy());
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.route('/')
     .get((req, res) => {
+
         res.render('home');
+
     })   
-
-
 
 app.route('/register')
     .get((req, res) => {
-    res.render('register');
+
+        res.render('register');
+
     })
     .post((req, res) => {
 
-        const newUser = new User({
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            email: req.body.email,
-            password: req.body.password
-        });
-
-        newUser.save()
-          .then(() => {
-            res.render('write-post');
-          })
-          .catch((err) => {
-            res.send(err);
-          })
+        User.register({username: req.body.username}, req.body.password)
+            .then((user) => {
+                passport.authenticate('local')(req, res, () => {
+                    res.redirect('/write-post');
+                });
+            })
+            .catch((err) => {
+                res.send(err);
+                res.redirect('/register')
+            });
         
     });
 
 app.route('/sign-in')
     .get((req, res) => {
-    res.render('sign-in');
+
+        res.render('sign-in');
+
     })
     .post((req, res) => {
 
-        const email = req.body.email;
-        const password = req.body.password;
+        const user = new User({
+            username: req.body.username,
+            password: req.body.password
+        });
 
-        User.findOne({email: email})
-          .then((foundUser) => {
-            if(foundUser) {
-                if(foundUser.password === password) {
-                    res.render('write-post');
-                }
+        req.login(user, (err) => {
+            if(err) {
+                res.send(err);
+            } else {
+                passport.authenticate('local')(req, res, () => {
+                    res.redirect('/write-post');
+                });
             }
-          })
-          .catch((err) => {
-            res.send(err);
-          })
+        })
         
     });
 
 app.route('/write-post')
     .get((req, res) => {
-    res.render('write-post');
+
+        if(req.isAuthenticated()) {
+            res.render('write-post');
+        } else {
+            res.redirect('/sign-in');
+        }
+
     })
     .post((req, res) => {
 
         res.render('write-post');
+        
     });
 
 
