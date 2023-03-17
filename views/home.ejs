@@ -14,7 +14,11 @@
                     Share your interest, your travel adventures, your professional and 
                     personal achievements. World Blog's family is here to share it with you.
                     </p>
-                    <a class="story-btn btn" type="button" href="/sign-in" title="GET STARTED">GET STARTED</a>
+                    <% if(isAuthenticated) { %>
+                        <a class="story-btn btn" type="button" href="/write-post" title="GET STARTED">GET STARTED</a>
+                    <% } else { %>
+                        <a class="story-btn btn" type="button" href="/sign-in" title="GET STARTED">GET STARTED</a>
+                    <% } %>
                 </div>
             </div>
             <div class="col col-lg-6 col-md-12 col-sm-12">
