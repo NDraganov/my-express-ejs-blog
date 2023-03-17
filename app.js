@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 app.use(session({
-    secret: "Thisissecret",
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {}
@@ -112,7 +112,7 @@ app.route('/write-post')
     .post((req, res) => {
 
         res.render('write-post');
-        
+
     });
 
 

@@ -58,6 +58,21 @@ nav {
     color: #000000;
     background-color: #F6F1F1;
 }
+.log-out-btn {
+    display: none;
+    background: none;
+    color: #F6F1F1;
+    border: 2px solid #F6F1F1;
+    border-radius: 8px;
+    position: relative;
+    padding-top: 15px;
+    /* left: 50%; */
+    font-weight: bold;
+}
+.log-out-btn:hover {
+    color: #000000;
+    background-color: #F6F1F1;
+}
 
 /* Register Page */
 
