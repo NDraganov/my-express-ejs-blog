@@ -1,13 +1,19 @@
 <%- include('partials/header'); -%>
 
-<div class="profile">
-    <img class="profile-img" src="" alt="">
-    <div class="profile-info">
-        <p class="email"><%= username %></p>
-        <p class="email"><%= firstName %></p>
-        <p class="email"><%= lastName %></p>
+<div class="container profile">
+    <div class="container profile-left">
+        <img class="profile-img" src="" alt="">
     </div>
-    <a class="write-btn btn" href="/write-post" type="button">WRITE A POST</a>
+    <div class="profile-middle">
+        <p class="email"><%= username %></p>
+        <div class="name-info">
+            <p class="email"><%= firstName %></p>
+            <p class="email last-Name"><%= lastName %></p>
+        </div>
+    </div>
+    <div class="container profile-right">
+        <a class="write-btn btn" href="/write-post" type="button">WRITE A POST</a>
+    </div>
 </div>
 
 

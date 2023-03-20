@@ -135,16 +135,40 @@ nav {
 
 /* Profile Page */
 
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+    background-color: #F8EAD8;
+    border: 1px solid #594545;
+    border-radius: 10px;
+    height: 300px;
+}
+.profile-left {
+    padding-left: 100px;
+}
+.profile-middle {
+    padding-right: 100px;
+}
+.profile-right {
+    padding-left: 100px;
+}
 .profile-img {
     width: 200px;
     height: 200px;
     background-color: darkgray;
-    border: 5px solid grey;
+    border: 5px solid #594545;
     border-radius: 100%;
 }
+.name-info {
+    display: flex;
+    justify-content: flex-start;
+}
 .email {
-    color: coral;
+    color: #594545;
     font-size: 20px;
+    padding: 5px;
 }
 .write-btn {
     background-color: #594545;
@@ -155,6 +179,15 @@ nav {
     background-color: #F6F1F1;
     color: #594545;
     border: 2px solid #594545;
+}
+
+.profile-posts {
+    background-color: #F8EAD8;
+    color: #594545;
+    border: 1px solid #594545;
+    border-radius: 10px;
+    margin-top: 50px;
+    padding: 30px;
 }
 
 /* Sign In Page */

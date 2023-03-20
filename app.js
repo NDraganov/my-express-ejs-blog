@@ -37,9 +37,15 @@ const userSchema = new mongoose.Schema({
     password: String
 });
 
+const postSchema = new mongoose.Schema({
+    title: String,
+    content: String
+});
+
 userSchema.plugin(passportLocalMongoose);
 
 const User = new mongoose.model('User', userSchema);
+const Post = new mongoose.model('Post', postSchema);
 
 passport.use(User.createStrategy());
 
@@ -52,7 +58,7 @@ app.route('/')
         
         res.render('home', {isAuthenticated: req.isAuthenticated()});
 
-    })   
+    });
 
 app.route('/register')
     .get((req, res) => {
@@ -104,16 +110,25 @@ app.route('/profile')
     .get((req, res) => {
 
         if(req.isAuthenticated()) {
+
+            Post.find({})
+                .then(() => {
+                    res.render('profile', {
+                        username: req.user.username, 
+                        firstName: req.user.firstName, 
+                        lastName: req.user.lastName,
+                        
+                        isAuthenticated: req.isAuthenticated()
+                    });
+                })
+                .catch((err) => {
+                    res.send(err);
+                })
             
-            res.render('profile', {username: req.user.username, firstName: req.user.firstName, lastName: req.user.lastName, isAuthenticated: req.isAuthenticated()});
         } else {
             res.redirect('/sign-in');
         }
 
-    })
-    .post((req, res) => {
-
-        res.render('/profile');
     })
 
 app.route('/write-post')
@@ -128,7 +143,40 @@ app.route('/write-post')
     })
     .post((req, res) => {
 
-        res.render('write-post');
+        const post = new Post({
+            title: req.body.postTitle,
+            content: req.body.postContent
+        });
+
+        post.save()
+            .then(() => {
+                res.redirect('/posts');
+            })
+            .catch((err) => {
+                res.send(err);
+            })
+
+    });
+
+app.route('/posts')
+    .get((req, res) => {
+
+        if(req.isAuthenticated()) {
+
+            Post.find({})
+                .then((posts) => {
+                    res.render('posts', {
+                        posts: posts,
+                        isAuthenticated: req.isAuthenticated()
+                    });
+                })
+                .catch((err) => {
+                    res.send(err);
+                })
+            
+        } else {
+            res.redirect('/sign-in');
+        }
 
     });
 
@@ -142,7 +190,7 @@ app.route('/logout')
         });
 
         res.redirect('/');
-    })
+    });
 
 
 app.listen(3000, function() {

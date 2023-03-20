@@ -1,0 +1,10 @@
+<%- include('partials/header'); -%>
+
+<% posts.forEach((post) => { %>
+    <div class="container profile-posts">
+        <h2 class="post-title"><%= post.title %></h2>
+        <p class="content-post"><%= post.content %></p>
+    </div>
+<% }) %>
+
+<%- include('partials/footer'); -%>
