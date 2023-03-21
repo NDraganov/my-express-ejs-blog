@@ -3,7 +3,10 @@
 <% posts.forEach((post) => { %>
     <div class="container profile-posts">
         <h2 class="post-title"><%= post.title %></h2>
-        <p class="content-post"><%= post.content %></p>
+        <p class="content-post">
+            <%= post.content.substring(0, 100) + " ..." %>
+            <a href="">Read more</a>
+        </p>
     </div>
 <% }) %>
 
