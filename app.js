@@ -150,7 +150,7 @@ app.route('/write-post')
         const post = new Post({
             title: req.body.postTitle,
             content: req.body.postContent
-        });
+        })
 
         post.save()
             .then(() => {
@@ -158,7 +158,7 @@ app.route('/write-post')
             })
             .catch((err) => {
                 res.send(err);
-            })
+            });
 
     });
 

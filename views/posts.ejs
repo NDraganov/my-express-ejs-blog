@@ -1,12 +1,12 @@
 <%- include('partials/header'); -%>
 
 <% posts.forEach((post) => { %>
-    <div class="container profile-posts">
+    <div class="container posts" id="posts">
         <h2 class="post-title"><%= post.title %></h2>
         <p class="content-post">
-            <%= post.content.substring(0, 100) + " ..." %>
-            <a href="">Read more</a>
+            <%= post.content %>
         </p>
+        <span id="readMore"></span>
     </div>
 <% }) %>
 
