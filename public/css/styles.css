@@ -226,6 +226,9 @@ nav {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+.posts p i {
+    padding-right: 10px;
+}
 .posts span::before {
     content: 'Read more';
     color: #19A7CE;

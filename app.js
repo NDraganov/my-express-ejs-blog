@@ -41,6 +41,7 @@ const userSchema = new mongoose.Schema({
 });
 
 const postSchema = new mongoose.Schema({
+    fullName: String,
     title: String,
     content: String
 });
@@ -148,6 +149,7 @@ app.route('/write-post')
     .post((req, res) => {
 
         const post = new Post({
+            fullName: req.body.fullName,
             title: req.body.postTitle,
             content: req.body.postContent
         })

@@ -9,17 +9,17 @@
     <div class="card">
         <div class="card-body">
           <form action="/write-post" method="post">
-            <!-- <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
-            </div> -->
             <div class="mb-3">
-                <label for="post-title" class="form-label">Post Ttle</label>
+                <label for="fullName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Full Name">
+            </div>
+            <div class="mb-3">
+                <label for="post-title" class="form-label">Post Title</label>
                 <input type="text" class="form-control" id="post-title" name="postTitle" placeholder="Post Title">
             </div>
             <div class="mb-3">
                 <label for="post-content" class="form-label">Your Post</label>
-                <textarea class="form-control" id="post-content" name="postContent" rows="5"></textarea>
+                <textarea class="form-control" id="post-content" name="postContent" placeholder="Your Post" rows="5"></textarea>
             </div>
             <button class="btn btn-primary post-btn" type="submit">Submit</button>
           </form>
