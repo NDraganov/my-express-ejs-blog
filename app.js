@@ -12,6 +12,8 @@ const { JSDOM } = require( "jsdom" );
 const { window } = new JSDOM( "" );
 const $ = require( "jquery" )( window );
 
+const port = 3000;
+
 const mongodbUrl = process.env.MONGODB_LINK;
 
 const app = express();
@@ -199,6 +201,6 @@ app.route('/logout')
     });
 
 
-app.listen(3000, function() {
+app.listen(process.env.PORT || port, function() {
     console.log('App is running on port 3000.');
 });
