@@ -134,7 +134,7 @@ app.route('/profile')
             res.redirect('/sign-in');
         }
 
-    });
+    })
 
 app.route('/write-post')
     .get((req, res) => {
